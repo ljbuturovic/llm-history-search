@@ -31,8 +31,8 @@ function collectText() {
     const main = document.querySelector('main') || document.querySelector('[role="main"]');
     text = main ? main.innerText : document.body.innerText;
   } else if (provider === 'claude') {
-    // Claude: get conversation container
-    const conv = document.querySelector('[data-testid="conversation"]') || document.querySelector('main');
+    // Claude: get conversation container (excluding sidebar)
+    const conv = document.querySelector('.flex.min-h-full.w-full.overflow-x-clip > .w-full.relative.min-w-0');
     text = conv ? conv.innerText : document.body.innerText;
   } else if (provider === 'gemini') {
     // Gemini: get chat container
