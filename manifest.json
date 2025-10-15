@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Conversations",
+  "name": "conversai",
   "version": "1.0",
   "description": "Search your AI conversations across ChatGPT, Claude, Gemini, and Grok.",
   "permissions": ["storage", "unlimitedStorage"],

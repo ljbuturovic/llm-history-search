@@ -1,5 +1,5 @@
 // content.js
-console.log('[Conversations Extension] Content script loaded');
+console.log('[conversai extension] Content script loaded');
 
 function detectProvider() {
   const { hostname, pathname } = location;
@@ -63,7 +63,7 @@ function collectText() {
     text,
     capturedAt: new Date().toISOString()
   };
-  console.log('[Conversations Extension] Capturing thread:', thread);
+  console.log('[conversai extension] Capturing thread:', thread);
   queueThread(thread);
 }
 
@@ -104,14 +104,14 @@ function flushThreads() {
 
 // Observe DOM changes and periodically save
 const observer = new MutationObserver(() => {
-  clearTimeout(window.__conversationsTimer);
-  window.__conversationsTimer = setTimeout(collectText, 2000);
+  clearTimeout(window.__conversaiTimer);
+  window.__conversaiTimer = setTimeout(collectText, 2000);
 });
 observer.observe(document.body, { childList: true, subtree: true });
 
 window.addEventListener('pagehide', () => {
   observer.disconnect();
-  clearTimeout(window.__conversationsTimer);
+  clearTimeout(window.__conversaiTimer);
   if (flushTimer) {
     clearTimeout(flushTimer);
     flushThreads();
