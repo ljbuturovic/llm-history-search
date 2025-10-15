@@ -15,7 +15,7 @@ cp background.js content.js db.js "$PACKAGE_DIR/"
 cp -r icons "$PACKAGE_DIR/"
 
 echo "Creating production manifest.json (without localhost)..."
-cat manifest.json | jq '.externally_connectable.matches = ["http://conversai.us/*"]' > "$PACKAGE_DIR/manifest.json"
+cat manifest.json | jq '.externally_connectable.matches = ["https://conversai.us/*"]' > "$PACKAGE_DIR/manifest.json"
 
 echo "Creating ZIP file..."
 cd "$PACKAGE_DIR"

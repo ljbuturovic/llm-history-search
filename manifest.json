@@ -30,7 +30,7 @@
     }
   ],
   "externally_connectable": {
-      "matches": ["http://conversai.us/*", "http://localhost:*/*"]
+      "matches": ["https://conversai.us/*", "http://localhost:*/*"]
   },
   "icons": {
       "16": "icons/16.png",
