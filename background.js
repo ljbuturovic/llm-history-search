@@ -20,7 +20,9 @@ chrome.runtime.onMessageExternal.addListener((msg, sender, sendResponse) => {
   console.log('[Background] External message from:', sender.origin);
   const origin = new URL(sender.origin || "").origin;
   console.log('[Background] Parsed origin:', origin);
-  if (origin !== "http://localhost:8000" && origin !== "https://clinicalpersona.com") {
+  const isLocalhost = origin.startsWith("http://localhost:");
+  const isAllowedDomain = origin === "https://clinicalpersona.com";
+  if (!isLocalhost && !isAllowedDomain) {
     console.log('[Background] Origin not allowed, rejecting');
     return;
   }
