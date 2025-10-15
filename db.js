@@ -1,5 +1,5 @@
 // db.js - Using chrome.storage instead of IndexedDB
-async function saveThread(thread) {
+export async function saveThread(thread) {
   console.log('[DB] saveThread called with:', thread);
   try {
     // Get existing threads
@@ -18,7 +18,7 @@ async function saveThread(thread) {
   }
 }
 
-async function searchThreads(query) {
+export async function searchThreads(query) {
   console.log('[DB] searchThreads called with query:', query);
   try {
     const result = await chrome.storage.local.get(['threads']);

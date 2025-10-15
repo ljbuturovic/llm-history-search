@@ -1,5 +1,5 @@
 // background.js
-importScripts("db.js");
+import { saveThread, searchThreads } from './db.js';
 
 console.log('[Background] Script loaded');
 
