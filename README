@@ -2,3 +2,8 @@ To run the service locally:
 
 $ python3 -m http.server 8000
 
+
+Chrome Web Store
+~~~~~~~~~~~~~~~~
+
+$ zip -r conversai.zip manifest.json background.js content.js db.js icons
