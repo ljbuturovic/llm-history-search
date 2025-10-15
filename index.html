@@ -70,6 +70,7 @@
   <div class="search-box">
     <input type="text" id="searchQuery" placeholder="Enter search query" onkeypress="if(event.key==='Enter') search()">
     <button onclick="search()">Search</button>
+    <button onclick="clearData()" style="background: #dc3545;">Clear Data</button>
   </div>
   <div id="results"></div>
 
@@ -112,6 +113,34 @@
             resultsDiv.appendChild(resultItem);
           });
         }
+      } catch (error) {
+        resultsDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+      }
+    }
+
+    async function clearData() {
+      if (!confirm('Are you sure you want to clear all stored conversations?')) {
+        return;
+      }
+
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = 'Clearing data...';
+
+      try {
+        await new Promise((resolve, reject) => {
+          chrome.runtime.sendMessage(
+            EXTENSION_ID,
+            { action: "CLEAR" },
+            response => {
+              if (chrome.runtime.lastError) {
+                reject(chrome.runtime.lastError);
+              } else {
+                resolve(response);
+              }
+            }
+          );
+        });
+        resultsDiv.innerHTML = '<p style="color: green;">All data cleared successfully!</p>';
       } catch (error) {
         resultsDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
       }

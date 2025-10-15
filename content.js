@@ -48,12 +48,10 @@ function collectText() {
 
   text = text.slice(0, 50000); // limit size
 
-  // Generate unique ID: use URL + title hash for stable identification
+  // Generate unique ID: use URL only for stable identification
   // This allows updates to same conversation without creating duplicates
-  const titleHash = document.title.split('').reduce((hash, char) => {
-    return ((hash << 5) - hash) + char.charCodeAt(0);
-  }, 0);
-  const id = `${location.href}#${titleHash}`;
+  // (title can change as conversation evolves, but URL stays the same)
+  const id = location.href;
 
   const thread = {
     id: id,

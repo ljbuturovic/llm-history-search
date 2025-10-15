@@ -31,4 +31,12 @@ chrome.runtime.onMessageExternal.addListener((msg, sender, sendResponse) => {
     searchThreads(msg.query).then(results => sendResponse({ results }));
     return true; // asynchronous
   }
+
+  if (msg.action === "CLEAR") {
+    chrome.storage.local.clear().then(() => {
+      console.log('[Background] Storage cleared');
+      sendResponse({ success: true });
+    });
+    return true; // asynchronous
+  }
 });

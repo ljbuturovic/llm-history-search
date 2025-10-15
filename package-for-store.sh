@@ -11,7 +11,7 @@ rm -rf "$PACKAGE_DIR"
 mkdir -p "$PACKAGE_DIR"
 
 echo "Copying extension files..."
-cp background.js content.js db.js index.html "$PACKAGE_DIR/"
+cp background.js content.js db.js "$PACKAGE_DIR/"
 cp -r icons "$PACKAGE_DIR/"
 
 echo "Creating production manifest.json (without localhost)..."
