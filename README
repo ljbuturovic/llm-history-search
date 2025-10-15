@@ -7,3 +7,26 @@ Chrome Web Store
 ~~~~~~~~~~~~~~~~
 
 $ zip -r conversai.zip manifest.json background.js content.js db.js icons
+
+Then publish
+
+Go to the Chrome Web Store Developer Dashboard.
+
+Add new item -  upload conversai.zip.
+
+Fill listing details (name - ConversAI -, descriptions, screenshots, privacy policy URL).
+
+Submit for review.
+
+Quick privacy policy template (paste on your site)
+
+ConversAI Privacy Policy (Browser Extension)
+
+ConversAI processes and stores your chat content locally in your
+browser to provide search across ChatGPT, Claude, and
+Gemini. ConversAI does not collect, transmit, or sell your chat
+content to our servers or third parties. You can pause capture or
+delete all locally stored data at any time via the extension
+settings. If you enable an optional sync/backup feature in the future,
+any data would be encrypted client-side before leaving your device.
+
