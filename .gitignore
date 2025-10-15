@@ -1,5 +1,6 @@
 *.pem
 *.crx
+*.zip
 .DS_Store
 Thumbs.db
 screenshot.png
