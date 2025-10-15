@@ -30,3 +30,11 @@ delete all locally stored data at any time via the extension
 settings. If you enable an optional sync/backup feature in the future,
 any data would be encrypted client-side before leaving your device.
 
+
+Updating index.html
+~~~~~~~~~~~~~~~~~~~
+
+$ cd ~/netlify
+$ netlify login
+$ netlify link
+$ netlify deploy --prod

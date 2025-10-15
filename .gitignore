@@ -6,3 +6,6 @@ Thumbs.db
 screenshot.png
 shot.png
 .claude/
+
+# Local Netlify folder
+.netlify

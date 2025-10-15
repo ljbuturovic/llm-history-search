@@ -14,6 +14,18 @@
       color: #333;
       margin-bottom: 30px;
     }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-top: 0;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
     .search-box {
       display: flex;
       gap: 10px;
@@ -66,7 +78,8 @@
   </style>
 </head>
 <body>
-  <h2>conversai: search your ChatGPT, Claude, Gemini, Grok conversations</h2>
+  <h2><span style="color: navy;">convers</span><span style="color: red;">ai</span>: search your ChatGPT, Claude, Gemini, Grok conversations</h2>
+  <p class="subtitle">(requires <span style="color: navy;">convers</span><span style="color: red;">ai</span> extension on <a href="https://chromewebstore.google.com/" target="_blank" style="color: #1a73e8;">Chrome Web Store</a>)</p>
   <div class="search-box">
     <input type="text" id="searchQuery" placeholder="Enter search query" onkeypress="if(event.key==='Enter') search()">
     <button onclick="search()">Search</button>
