@@ -1,0 +1,7 @@
+conversai processes and stores your chat content locally in your
+browser to provide search across ChatGPT, Claude, Gemini and
+Grok. conversai does not collect, transmit, or sell your chat content
+to our servers or third parties. You can pause capture or delete all
+locally stored data at any time via the extension settings. If you
+enable an optional sync/backup feature in the future, any data would
+be encrypted client-side before leaving your device.
