@@ -23,6 +23,14 @@ function getRuntime() {
 
 function collectText() {
   const provider = detectProvider();
+  const { pathname } = location;
+
+  // Skip generic pages that aren't actual conversations
+  if (provider === 'gemini' && (pathname === '/app' || pathname === '/app/')) {
+    console.log('[conversai extension] Skipping generic Gemini app page');
+    return;
+  }
+
   let text = '';
 
   // Provider-specific selectors to get only conversation content
