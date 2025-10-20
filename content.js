@@ -31,6 +31,13 @@ function collectText() {
     return;
   }
 
+  // Skip ChatGPT project overview pages (but allow conversations within projects)
+  // Project conversations have /c/ in the path, overview pages don't
+  if (provider === 'chatgpt' && pathname.startsWith('/g/') && !pathname.includes('/c/')) {
+    console.log('[conversai extension] Skipping ChatGPT project overview page');
+    return;
+  }
+
   let text = '';
 
   // Provider-specific selectors to get only conversation content
