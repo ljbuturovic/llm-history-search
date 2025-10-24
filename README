@@ -73,8 +73,12 @@ Not good. Repetitive.
   HOW TO USE
 
   1. Install this extension
-  2. Visit and use ChatGPT, Claude, Gemini, or Grok (conversations are automatically captured in the background)
-  3. Go to conversai.us and search your conversations by keyword
+
+  2. Visit and use ChatGPT, Claude, Gemini, or Grok (conversations are
+  automatically captured in the background)
+  
+  3. Point Chrome to conversai.us and search your conversations by
+  keyword
 
   BACKGROUND
 
@@ -86,7 +90,7 @@ Not good. Repetitive.
   keywords (like Google search) and you'll get links to the
   conversations, across the LLMs, that include those keywords.
 
-  IMPORTANT NOTES:
+  IMPORTANT NOTES
 
   1. conversai searches only conversations performed using Chrome on a
   single computer, not across computers
