@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "conversai",
   "version": "1.0",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtT+ONguVrBKRy3rNNCmCTJdU9+x8e2x5d8i6KBB7BRpvOYPZT4nKtE95MMOrmSuAvlK5yxJ/L0IE3wXDGk4R2QZDC9TWRj1egcOG3G33nWE1Jr2xGhJpYqbGEAptXO6IA8m6J7Htj0vYMURr53Vz3DW5BwWZxjKbIT6AvuQnWFJCo/tfkX+qaRUYXw95pntXAsjjO7XcDd3bJK6WzIPF6uBoa8JvdAgROUPPDyBEktqjphemWu5YeV5NsQdunLMy+MezipgWwdJob4rx89nC7YPjajnx3HSnnA6okxjkxMF5yCtsApuExlQB3beXMDEa3ca/r0I7DbhQAIc7Nr7JcwIDAQAB",
   "description": "Search your AI conversations across ChatGPT, Claude, Gemini, and Grok.",
   "permissions": ["storage", "unlimitedStorage"],
   "host_permissions": [
