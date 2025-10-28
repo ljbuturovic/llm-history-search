@@ -96,22 +96,35 @@ function flushThreads() {
   if (!runtime?.id) {
     // Runtime unavailable - likely extension context invalidated during page navigation
     // Silently drop threads as this is expected behavior
+    console.log('[conversai extension] Runtime unavailable, dropping threads');
     pendingThreads.length = 0;
     return;
   }
 
   const threadsToSend = pendingThreads.splice(0, pendingThreads.length);
+  console.log('[conversai extension] Flushing', threadsToSend.length, 'threads');
   threadsToSend.forEach(thread => {
-    try {
-      runtime.sendMessage({ type: "CAPTURE", thread }, () => {
-        // Silently ignore lastError - expected during page navigation/context invalidation
-        if (runtime.lastError) {
-          // Do nothing - this is expected behavior
-        }
-      });
-    } catch (error) {
-      // Silently ignore errors - expected during extension context invalidation
-    }
+    // Send message and retry once if service worker is asleep
+    const sendWithRetry = (attempt = 1) => {
+      try {
+        runtime.sendMessage({ type: "CAPTURE", thread }, (response) => {
+          if (runtime.lastError) {
+            const error = runtime.lastError.message;
+            console.error('[conversai extension] Error sending message (attempt ' + attempt + '):', error);
+            // If service worker was inactive, Chrome will wake it up, so retry once
+            if (attempt === 1 && error.includes('Receiving end does not exist')) {
+              console.log('[conversai extension] Retrying after service worker wake-up...');
+              setTimeout(() => sendWithRetry(2), 100);
+            }
+          } else {
+            console.log('[conversai extension] Message sent successfully', response);
+          }
+        });
+      } catch (error) {
+        console.error('[conversai extension] Exception sending message:', error);
+      }
+    };
+    sendWithRetry();
   });
 }
 

@@ -4,14 +4,17 @@ import { saveThread, searchThreads } from './db.js';
 console.log('[Background] Script loaded');
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-  console.log('[Background] Received message:', msg);
+  console.log('[Background] Received message:', msg, 'from:', sender);
   if (msg.type === "CAPTURE" && msg.thread) {
     console.log('[Background] Saving thread:', msg.thread);
     saveThread(msg.thread).then(() => {
       console.log('[Background] Thread saved successfully');
+      sendResponse({ success: true });
     }).catch(err => {
       console.error('[Background] Error saving thread:', err);
+      sendResponse({ success: false, error: err.message });
     });
+    return true; // Keep channel open for async response
   }
 });
 
