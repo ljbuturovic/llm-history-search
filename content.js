@@ -25,6 +25,12 @@ function collectText() {
   const provider = detectProvider();
   const { pathname } = location;
 
+  // Skip unknown providers (e.g., regular X/Twitter pages that aren't Grok)
+  if (provider === 'unknown') {
+    console.log('[conversai extension] Skipping unknown provider page');
+    return;
+  }
+
   // Skip generic pages that aren't actual conversations
   if (provider === 'gemini' && (pathname === '/app' || pathname === '/app/')) {
     console.log('[conversai extension] Skipping generic Gemini app page');
