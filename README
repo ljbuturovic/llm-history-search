@@ -104,3 +104,33 @@ Not good. Repetitive.
 
   4. All data is stored locally on your computer; nothing is sent to
   external servers
+
+
+Shortened version, for index.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  HOW TO USE
+
+  1. Install this extension
+
+  2. Visit and use ChatGPT, Claude, Gemini, or Grok (conversations are
+  automatically captured in the background)
+  
+  3. Point Chrome to conversai.us and search your conversations by
+  keyword
+
+  IMPORTANT NOTES
+
+  1. conversai searches only conversations performed using Chrome on a
+  single computer, not across computers
+  
+  2. conversai searches only conversations performed after the
+  extension has been installed. To search prior conversations, you
+  must re-visit them after installing conversai
+  
+  3. Target audience: people accessing multiple LLMs from a single
+  computer via Chrome
+
+  4. All data is stored locally on your computer; nothing is sent to
+  external servers
+
