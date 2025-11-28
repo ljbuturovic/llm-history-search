@@ -4,25 +4,25 @@ To run the service locally: $ python3 -m http.server 8000
 Chrome Web Store
 ~~~~~~~~~~~~~~~~
 
-$ zip -r LLMHistorySearch.zip manifest.json background.js content.js db.js icons
+$ zip -r llm-history-search.zip manifest.json background.js content.js db.js icons
 
 Then publish
 
 Go to the Chrome Web Store Developer Dashboard.
 
-Add new item -  upload LLMHistorySearch.zip
+Add new item -  upload llm-history-search.zip
 
-Fill listing details (name - LLMHistorySearch -, descriptions, screenshots, privacy policy URL).
+Fill listing details (name - llm-history-search -, descriptions, screenshots, privacy policy URL).
 
 Submit for review.
 
 Quick privacy policy template (paste on your site)
 
-LLMHistorSearch Privacy Policy (Browser Extension)
+llm-history-search Privacy Policy (Browser Extension)
 
-LLMHistorySearch processes and stores your chat content locally in your
+llm-history-search processes and stores your chat content locally in your
 browser to provide search across ChatGPT, Claude, and
-Gemini. LLMHistorySearch does not collect, transmit, or sell your chat
+Gemini. llm-history-search does not collect, transmit, or sell your chat
 content to our servers or third parties. You can pause capture or
 delete all locally stored data at any time via the extension
 settings. If you enable an optional sync/backup feature in the future,
@@ -53,12 +53,12 @@ Description, for index.html
 
   IMPORTANT NOTES
 
-  1. LLMHistorySearch searches only conversations performed using
+  1. llm-history-search searches only conversations performed using
   Chrome on a single computer, not across computers
-  
-  2. LLMHistorySearch searches only conversations performed after the
+
+  2. llm-history-search searches only conversations performed after the
   extension has been installed. To search prior conversations, you
-  must re-visit them after installing LLMHistorySearch
+  must re-visit them after installing llm-history-search
   
   3. Target audience: people accessing multiple LLMs from a single
   computer via Chrome

@@ -1,5 +1,5 @@
-LLMHistorySearch processes and stores your chat content locally in
+llm-history-search processes and stores your chat content locally in
 your browser to provide search across ChatGPT, Claude, Gemini and
-Grok. LLMHistorySearch does not collect, transmit, or sell your chat
+Grok. llm-history-search does not collect, transmit, or sell your chat
 content to our servers or third parties. You can delete all locally
 stored data at any time via the extension settings.

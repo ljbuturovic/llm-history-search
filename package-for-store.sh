@@ -1,10 +1,10 @@
 #!/bin/bash
-# Package LLMHistorySearch extension for Chrome Web Store
+# Package llm-history-search extension for Chrome Web Store
 
 set -e
 
-PACKAGE_DIR="llmhistorysearch-webstore"
-ZIP_FILE="llmhistorysearch-extension.zip"
+PACKAGE_DIR="llm-history-search-webstore"
+ZIP_FILE="llm-history-search-extension.zip"
 
 echo "Creating package directory..."
 rm -rf "$PACKAGE_DIR"
