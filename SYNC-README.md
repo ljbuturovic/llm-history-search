@@ -1,10 +1,10 @@
-# ConversAI Storage Synchronizer
+# LLMHistorySearch Storage Synchronizer
 
-A command-line tool to synchronize ConversAI extension storage across multiple workstations.
+A command-line tool to synchronize LLMHistorySearch extension storage across multiple workstations.
 
 ## What It Does
 
-When you use ConversAI on multiple computers, each stores conversations locally. This tool merges all conversations from a remote machine with your local machine, creating a unified collection on both.
+When you use LLMHistorySearch on multiple computers, each stores conversations locally. This tool merges all conversations from a remote machine with your local machine, creating a unified collection on both.
 
 ## Features
 
@@ -56,29 +56,29 @@ ssh-copy-id user@remote_host
 ### Basic Syntax
 
 ```bash
-python conversai-sync.py --remote_host <IP_or_hostname>
+python llmhistorysearch-sync.py --remote_host <IP_or_hostname>
 ```
 
 ### Examples
 
 **Sync with remote machine on local network:**
 ```bash
-python conversai-sync.py --remote_host 192.168.1.100
+python llmhistorysearch-sync.py --remote_host 192.168.1.100
 ```
 
 **Specify remote username:**
 ```bash
-python conversai-sync.py --remote_host 192.168.1.100 --remote_user john
+python llmhistorysearch-sync.py --remote_host 192.168.1.100 --remote_user john
 ```
 
 **Sync different Chrome profile:**
 ```bash
-python conversai-sync.py --remote_host 192.168.1.100 --profile "Profile 1"
+python llmhistorysearch-sync.py --remote_host 192.168.1.100 --profile "Profile 1"
 ```
 
 **Local-only mode (safety mode - preserves remote):**
 ```bash
-python conversai-sync.py --remote_host 192.168.1.100 --local_only
+python llmhistorysearch-sync.py --remote_host 192.168.1.100 --local_only
 ```
 
 ### Command-Line Options
@@ -92,7 +92,7 @@ python conversai-sync.py --remote_host 192.168.1.100 --local_only
 
 **On Machine A (local):**
 1. Close Chrome completely
-2. Run: `python conversai-sync.py --remote_host <machine_B_IP>`
+2. Run: `python llmhistorysearch-sync.py --remote_host <machine_B_IP>`
 3. Wait for sync to complete
 4. Start Chrome
 
@@ -113,12 +113,12 @@ The `--local_only` flag is a safety feature that updates only your local storage
 **Example workflow with safety mode:**
 ```bash
 # First run: test with --local_only
-python conversai-sync.py --remote_host 192.168.1.100 --local_only
+python llmhistorysearch-sync.py --remote_host 192.168.1.100 --local_only
 
 # Verify local storage looks correct in Chrome
 
 # Second run: sync both ways if satisfied
-python conversai-sync.py --remote_host 192.168.1.100
+python llmhistorysearch-sync.py --remote_host 192.168.1.100
 ```
 
 **What happens in local-only mode:**
@@ -144,7 +144,7 @@ python conversai-sync.py --remote_host 192.168.1.100
 ## Output Example
 
 ```
-ConversAI Storage Synchronizer
+LLMHistorySearch Storage Synchronizer
 ==================================================
 
 [1/7] Checking Chrome processes...
@@ -184,7 +184,7 @@ You can now start Chrome on both machines.
 ### Output Example (Local-Only Mode)
 
 ```
-ConversAI Storage Synchronizer
+LLMHistorySearch Storage Synchronizer
 MODE: Local-only (remote will NOT be modified)
 ==================================================
 
@@ -274,14 +274,14 @@ pkill chrome
 ### "Storage path not found" Error
 
 **Possible causes:**
-1. ConversAI extension not installed
+1. LLMHistorySearch extension not installed
 2. Different Chrome profile in use
-3. Never used ConversAI (storage not created yet)
+3. Never used LLMHistorySearch (storage not created yet)
 
 **Solution**:
 - Check extension is installed with ID `hafalgcffhhmhjgeaciekloejcnadggi`
 - Use `--profile` flag if using non-default profile
-- Run ConversAI at least once to create storage
+- Run LLMHistorySearch at least once to create storage
 
 ### "Failed to fetch remote database" Error
 
@@ -311,7 +311,7 @@ pkill chrome
 
 **Solution**:
 ```bash
-chmod +x conversai-sync.py
+chmod +x llmhistorysearch-sync.py
 ```
 
 ## Advanced Usage
@@ -321,9 +321,9 @@ chmod +x conversai-sync.py
 Run the script multiple times with different remote hosts:
 
 ```bash
-python conversai-sync.py --remote_host machine_B
-python conversai-sync.py --remote_host machine_C
-python conversai-sync.py --remote_host machine_D
+python llmhistorysearch-sync.py --remote_host machine_B
+python llmhistorysearch-sync.py --remote_host machine_C
+python llmhistorysearch-sync.py --remote_host machine_D
 ```
 
 Each sync accumulates more conversations into your local storage.
@@ -341,7 +341,7 @@ If remote machine is behind firewall:
 ssh -L 2222:localhost:22 gateway_host
 
 # Then sync through tunnel
-python conversai-sync.py --remote_host localhost --remote_user user
+python llmhistorysearch-sync.py --remote_host localhost --remote_user user
 ```
 
 Modify the script to use custom SSH port if needed.
@@ -400,4 +400,4 @@ Found a bug? Want to add features?
 
 ## License
 
-This sync tool is provided as-is for use with the ConversAI extension.
+This sync tool is provided as-is for use with the LLMHistorySearch extension.

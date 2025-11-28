@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-ConversAI Storage Synchronizer
+LLMHistorySearch Storage Synchronizer
 
 Synchronizes Chrome extension storage across multiple workstations.
 Merges conversations from remote host with local storage.
 
 Usage:
-    python conversai-sync.py --remote_host <IP_or_hostname>
+    python llmhistorysearch-sync.py --remote_host <IP_or_hostname>
 
 Requirements:
     - Chrome must be closed on both machines
@@ -31,7 +31,7 @@ except ImportError:
     sys.exit(1)
 
 
-# Extension ID for conversai
+# Extension ID for LLMHistorySearch
 EXTENSION_ID = "hafalgcffhhmhjgeaciekloejcnadggi"
 
 # Chrome storage key for threads
@@ -266,7 +266,7 @@ class ChromeStorageSync:
 
     def sync(self):
         """Main sync operation"""
-        print("ConversAI Storage Synchronizer")
+        print("LLMHistorySearch Storage Synchronizer")
         if self.local_only:
             print("MODE: Local-only (remote will NOT be modified)")
         print("=" * 50)
@@ -366,14 +366,14 @@ class ChromeStorageSync:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Synchronize ConversAI storage across workstations",
+        description="Synchronize LLMHistorySearch storage across workstations",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python conversai-sync.py --remote_host 192.168.1.100
-  python conversai-sync.py --remote_host myserver.local --remote_user john
-  python conversai-sync.py --remote_host 10.0.0.5 --profile "Profile 1"
-  python conversai-sync.py --remote_host 192.168.1.100 --local_only
+  python llmhistorysearch-sync.py --remote_host 192.168.1.100
+  python llmhistorysearch-sync.py --remote_host myserver.local --remote_user john
+  python llmhistorysearch-sync.py --remote_host 10.0.0.5 --profile "Profile 1"
+  python llmhistorysearch-sync.py --remote_host 192.168.1.100 --local_only
 
 Notes:
   - Chrome must be closed on local machine (and remote too, unless --local_only)

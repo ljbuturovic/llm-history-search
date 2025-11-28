@@ -1,30 +1,28 @@
-To run the service locally:
-
-$ python3 -m http.server 8000
+To run the service locally: $ python3 -m http.server 8000
 
 
 Chrome Web Store
 ~~~~~~~~~~~~~~~~
 
-$ zip -r conversai.zip manifest.json background.js content.js db.js icons
+$ zip -r LLMHistorySearch.zip manifest.json background.js content.js db.js icons
 
 Then publish
 
 Go to the Chrome Web Store Developer Dashboard.
 
-Add new item -  upload conversai.zip.
+Add new item -  upload LLMHistorySearch.zip
 
-Fill listing details (name - ConversAI -, descriptions, screenshots, privacy policy URL).
+Fill listing details (name - LLMHistorySearch -, descriptions, screenshots, privacy policy URL).
 
 Submit for review.
 
 Quick privacy policy template (paste on your site)
 
-ConversAI Privacy Policy (Browser Extension)
+LLMHistorSearch Privacy Policy (Browser Extension)
 
-ConversAI processes and stores your chat content locally in your
+LLMHistorySearch processes and stores your chat content locally in your
 browser to provide search across ChatGPT, Claude, and
-Gemini. ConversAI does not collect, transmit, or sell your chat
+Gemini. LLMHistorySearch does not collect, transmit, or sell your chat
 content to our servers or third parties. You can pause capture or
 delete all locally stored data at any time via the extension
 settings. If you enable an optional sync/backup feature in the future,
@@ -40,64 +38,27 @@ $ netlify link
 $ netlify deploy --prod
 
 
-Claude Code description
-~~~~~~~~~~~~~~~~~~~~~~~
-
- ---
-  HOW TO USE:
-  1. Install this extension
-  2. Visit and use ChatGPT, Claude, Gemini, or Grok (conversations are automatically captured in the background)
-  3. Go to conversai.us and search your conversations by keyword
-
-  ---
-  If you use multiple LLM chatbots like ChatGPT and Claude, it may be tedious to find a specific past conversation: you'd have to search each chatbot until you find it. conversai searches your conversations
-   on four major LLMs (ChatGPT, Claude, Gemini and Grok) from a single, simple Web page conversai.us. Just type in the keywords (like Google search) and you'll get links to the conversations, across all the
-   LLMs, that include those keywords.
-
-  IMPORTANT NOTES:
-  - conversai searches only conversations performed using Chrome on a single computer, not across computers
-  - conversai searches only conversations performed after the extension has been installed. To search prior conversations, you must re-visit them after installing conversai
-  - Target audience: people accessing multiple LLMs from a single computer via Chrome
-  - All data is stored locally in your browser - nothing is sent to external servers
-
-  ---
-
-Not good. Repetitive.
-
-
-  WHAT IS IT
-
-  Chrome extension to search conversations across multiple LLMs
-  (ChatGPT, Claude, Gemini and Grok).
+Description, for index.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   HOW TO USE
 
   1. Install this extension
 
-  2. Visit and use ChatGPT, Claude, Gemini, or Grok (conversations are
-  automatically captured in the background)
+  2. Visit conversai.us and use ChatGPT, Claude, Gemini, or Grok
+  (conversations are automatically captured in the background)
   
   3. Point Chrome to conversai.us and search your conversations by
   keyword
 
-  BACKGROUND
-
-  If you use multiple LLM chatbots like ChatGPT and Claude, it may be
-  tedious to find a specific past conversation: you'd have to search
-  each chatbot until you find it. conversai searches your
-  conversations on four major LLMs (ChatGPT, Claude, Gemini and Grok)
-  from a single, simple Web page conversai.us. Just type in the
-  keywords (like Google search) and you'll get links to the
-  conversations, across the LLMs, that include those keywords.
-
   IMPORTANT NOTES
 
-  1. conversai searches only conversations performed using Chrome on a
-  single computer, not across computers
+  1. LLMHistorySearch searches only conversations performed using
+  Chrome on a single computer, not across computers
   
-  2. conversai searches only conversations performed after the
+  2. LLMHistorySearch searches only conversations performed after the
   extension has been installed. To search prior conversations, you
-  must re-visit them after installing conversai
+  must re-visit them after installing LLMHistorySearch
   
   3. Target audience: people accessing multiple LLMs from a single
   computer via Chrome
@@ -105,32 +66,4 @@ Not good. Repetitive.
   4. All data is stored locally on your computer; nothing is sent to
   external servers
 
-
-Shortened version, for index.html
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  HOW TO USE
-
-  1. Install this extension
-
-  2. Visit and use ChatGPT, Claude, Gemini, or Grok (conversations are
-  automatically captured in the background)
-  
-  3. Point Chrome to conversai.us and search your conversations by
-  keyword
-
-  IMPORTANT NOTES
-
-  1. conversai searches only conversations performed using Chrome on a
-  single computer, not across computers
-  
-  2. conversai searches only conversations performed after the
-  extension has been installed. To search prior conversations, you
-  must re-visit them after installing conversai
-  
-  3. Target audience: people accessing multiple LLMs from a single
-  computer via Chrome
-
-  4. All data is stored locally on your computer; nothing is sent to
-  external servers
 

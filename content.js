@@ -1,5 +1,5 @@
 // content.js
-console.log('[conversai extension] Content script loaded');
+console.log('[LLMHistorySearch extension] Content script loaded');
 
 function detectProvider() {
   const { hostname, pathname } = location;
@@ -27,20 +27,20 @@ function collectText() {
 
   // Skip unknown providers (e.g., regular X/Twitter pages that aren't Grok)
   if (provider === 'unknown') {
-    console.log('[conversai extension] Skipping unknown provider page');
+    console.log('[LLMHistorySearch extension] Skipping unknown provider page');
     return;
   }
 
   // Skip generic pages that aren't actual conversations
   if (provider === 'gemini' && (pathname === '/app' || pathname === '/app/')) {
-    console.log('[conversai extension] Skipping generic Gemini app page');
+    console.log('[LLMHistorySearch extension] Skipping generic Gemini app page');
     return;
   }
 
   // Skip ChatGPT project overview pages (but allow conversations within projects)
   // Project conversations have /c/ in the path, overview pages don't
   if (provider === 'chatgpt' && pathname.startsWith('/g/') && !pathname.includes('/c/')) {
-    console.log('[conversai extension] Skipping ChatGPT project overview page');
+    console.log('[LLMHistorySearch extension] Skipping ChatGPT project overview page');
     return;
   }
 
@@ -82,7 +82,7 @@ function collectText() {
     text,
     capturedAt: new Date().toISOString()
   };
-  console.log('[conversai extension] Capturing thread:', thread);
+  console.log('[LLMHistorySearch extension] Capturing thread:', thread);
   queueThread(thread);
 }
 
@@ -102,13 +102,13 @@ function flushThreads() {
   if (!runtime?.id) {
     // Runtime unavailable - likely extension context invalidated during page navigation
     // Silently drop threads as this is expected behavior
-    console.log('[conversai extension] Runtime unavailable, dropping threads');
+    console.log('[LLMHistorySearch extension] Runtime unavailable, dropping threads');
     pendingThreads.length = 0;
     return;
   }
 
   const threadsToSend = pendingThreads.splice(0, pendingThreads.length);
-  console.log('[conversai extension] Flushing', threadsToSend.length, 'threads');
+  console.log('[LLMHistorySearch extension] Flushing', threadsToSend.length, 'threads');
   threadsToSend.forEach(thread => {
     // Send message and retry once if service worker is asleep
     const sendWithRetry = (attempt = 1) => {
@@ -116,18 +116,18 @@ function flushThreads() {
         runtime.sendMessage({ type: "CAPTURE", thread }, (response) => {
           if (runtime.lastError) {
             const error = runtime.lastError.message;
-            console.error('[conversai extension] Error sending message (attempt ' + attempt + '):', error);
+            console.error('[LLMHistorySearch extension] Error sending message (attempt ' + attempt + '):', error);
             // If service worker was inactive, Chrome will wake it up, so retry once
             if (attempt === 1 && error.includes('Receiving end does not exist')) {
-              console.log('[conversai extension] Retrying after service worker wake-up...');
+              console.log('[LLMHistorySearch extension] Retrying after service worker wake-up...');
               setTimeout(() => sendWithRetry(2), 100);
             }
           } else {
-            console.log('[conversai extension] Message sent successfully', response);
+            console.log('[LLMHistorySearch extension] Message sent successfully', response);
           }
         });
       } catch (error) {
-        console.error('[conversai extension] Exception sending message:', error);
+        console.error('[LLMHistorySearch extension] Exception sending message:', error);
       }
     };
     sendWithRetry();

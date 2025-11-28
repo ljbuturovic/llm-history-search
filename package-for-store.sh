@@ -1,10 +1,10 @@
 #!/bin/bash
-# Package conversai extension for Chrome Web Store
+# Package LLMHistorySearch extension for Chrome Web Store
 
 set -e
 
-PACKAGE_DIR="conversai-webstore"
-ZIP_FILE="conversai-extension.zip"
+PACKAGE_DIR="llmhistorysearch-webstore"
+ZIP_FILE="llmhistorysearch-extension.zip"
 
 echo "Creating package directory..."
 rm -rf "$PACKAGE_DIR"

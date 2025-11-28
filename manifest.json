@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "conversai",
-  "version": "1.1",
+  "name": "LLMHistorySearch",
+  "version": "1.2",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsVi4lGmF9CROWnlExhHvKBJj4BHVy8grfjosW1woEDUB4wZg71hs/LopnkJRXQChtlX5haWBjRZfJw4UrBJ4zFnVK9VHee8KLymXt0f+afSmdmgokKUnlnHM9Jzp95XCfdpfkgd5Am9FJJgGac9SP12MBWur1/+U6kCCqfOku88tPOSQ937h4Hb+eCJtsgUsH/1MeDaBVgAVnFy+ueqdtinQqTE3ob+i5ScKzFRKJgBdfm6Rvgtr8XbR8Elo2ctXvUeatzTeZ8Hz4OHCHy/u/g+OpHcVIzSGtrfdzv2rfYQ//geV7xLKpDUucM1CZ38uDo6pP+1GV9fsNKPFp1dhfwIDAQAB",
-  "description": "Search your AI conversations across ChatGPT, Claude, Gemini, and Grok.",
+  "description": "Search your past AI conversations across ChatGPT, Claude, Gemini, and Grok.",
   "permissions": ["storage", "unlimitedStorage"],
   "host_permissions": [
     "https://chatgpt.com/*",
