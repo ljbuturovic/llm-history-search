@@ -17,6 +17,7 @@ ENV/
 *.swp
 *.swo
 *~
+README
 
 # OS
 .DS_Store
