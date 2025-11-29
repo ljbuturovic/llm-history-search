@@ -1,4 +1,9 @@
-To run the service locally: $ python3 -m http.server 8000
+Running the service locally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+chrome://extensions (turn on Developer mode)
+Load unpacked
+$ python3 -m http.server 8000
 
 
 Chrome Web Store
