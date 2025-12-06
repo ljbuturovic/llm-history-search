@@ -28,8 +28,8 @@ of the conversations locally.
   (conversations are automatically captured in the background and
   stored in Chrome local storage on your disk)
 
-- Point Chrome to conversai.us and search your conversations by
-  keyword
+- Point Chrome to [conversai.us](https://conversai.us) and search your
+  conversations by keywords
 
 # Important Notes
 
