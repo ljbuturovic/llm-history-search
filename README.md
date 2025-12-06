@@ -24,9 +24,9 @@ of the conversations locally.
   [conversai.us](https://conversai.us) and it has the link to the
   extension)
 
-- Once installed, visit and use ChatGPT, Claude, Gemini, or Grok
-  (conversations are automatically captured in the background and
-  stored in Chrome local storage on your disk)
+- Once installed, visit and use ChatGPT, Claude, Gemini, or
+  Grok. Conversations are automatically captured in the background and
+  stored in Chrome local storage on your disk
 
 - Point Chrome to [conversai.us](https://conversai.us) and search your
   conversations by keywords
