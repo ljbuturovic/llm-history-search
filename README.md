@@ -21,7 +21,8 @@ of the conversations locally.
 ## How to Install and Use
 
 - Install the llm-history-search Chrome extension (easiest: just visit
-  conversai.us and it has the link to the extension)
+  [conversai.us](https://conversai.us) and it has the link to the
+  extension)
 
 - Once installed, visit and use ChatGPT, Claude, Gemini, or Grok
   (conversations are automatically captured in the background and
