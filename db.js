@@ -18,6 +18,30 @@ export async function saveThread(thread) {
   }
 }
 
+// Helper function to detect if a thread is a search/meta conversation
+function isSearchConversation(thread) {
+  // Check URL patterns - exclude search and chats overview pages
+  if (thread.url.includes('/search')) return true;
+
+  // Claude uses /chats for search functionality
+  if (thread.provider === 'claude' && (thread.url.endsWith('/chats') || thread.url.endsWith('/chats/'))) {
+    return true;
+  }
+
+  // Check title patterns for search-related pages
+  const title = thread.title.toLowerCase();
+  if (title.includes('search') && (title.includes('results') || title.includes('conversations'))) {
+    return true;
+  }
+
+  // Claude's chats page has "Chats" or "Claude" as title
+  if (thread.provider === 'claude' && (title === 'chats' || title === 'claude')) {
+    return true;
+  }
+
+  return false;
+}
+
 export async function searchThreads(query) {
   console.log('[DB] searchThreads called with query:', query);
   try {
@@ -29,6 +53,12 @@ export async function searchThreads(query) {
     const queryWords = query.toLowerCase().trim().split(/\s+/);
 
     for (const [id, thread] of Object.entries(threads)) {
+      // Skip search/meta conversations
+      if (isSearchConversation(thread)) {
+        console.log('[DB] Skipping search conversation:', thread.url);
+        continue;
+      }
+
       const titleLower = thread.title.toLowerCase();
       const textLower = thread.text.toLowerCase();
 

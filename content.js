@@ -44,6 +44,12 @@ function collectText() {
     return;
   }
 
+  // Skip Claude search/chats pages (these are for finding conversations, not actual conversations)
+  if (provider === 'claude' && (pathname.includes('/search') || pathname === '/chats' || pathname === '/chats/')) {
+    console.log('[llm-history-search extension] Skipping Claude search/chats page');
+    return;
+  }
+
   let text = '';
 
   // Provider-specific selectors to get only conversation content
