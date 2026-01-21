@@ -9,13 +9,13 @@ multiple LLMs
 
 ## The Problem
 
-I routinely use four top LLMs (ChatGPT, Claude, Gemini and Grok). But
-I don't have a way to track which conversation I had with which
-LLM. The only way to find the conversations that I know of is to login
-to each LLM and search. This is very tedious.
+I routinely use five top LLMs (ChatGPT, Claude, Gemini, Grok, and
+Perplexity). But I don't have a way to track which conversation I had
+with which LLM. The only way to find the conversations that I know of
+is to login to each LLM and search. This is very tedious.
 
 The llm-history-search extension and accompanying Web site search your
-past conversations across the four LLMs. It automatically keeps track
+past conversations across these LLMs. It automatically keeps track
 of the conversations locally.
 
 ## How to Install and Use
@@ -24,9 +24,9 @@ of the conversations locally.
   [conversai.us](https://conversai.us) and it has the link to the
   extension)
 
-- Once installed, visit and use ChatGPT, Claude, Gemini, or
-  Grok. Conversations are automatically captured in the background and
-  stored in Chrome local storage on your disk
+- Once installed, visit and use ChatGPT, Claude, Gemini, Grok, or
+  Perplexity. Conversations are automatically captured in the background
+  and stored in Chrome local storage on your disk
 
 - Point Chrome to [conversai.us](https://conversai.us) and search your
   conversations by keywords
