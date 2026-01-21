@@ -21,7 +21,8 @@ export async function saveThread(thread) {
 // Helper function to detect if a thread is a search/meta conversation
 function isSearchConversation(thread) {
   // Check URL patterns - exclude search and chats overview pages
-  if (thread.url.includes('/search')) return true;
+  // Exception: Perplexity uses /search/[id] for actual conversations
+  if (thread.url.includes('/search') && thread.provider !== 'perplexity') return true;
 
   // Claude uses /chats for search functionality
   if (thread.provider === 'claude' && (thread.url.endsWith('/chats') || thread.url.endsWith('/chats/'))) {

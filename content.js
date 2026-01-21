@@ -13,6 +13,7 @@ function detectProvider() {
     hostname.endsWith(".x.ai") ||
     (hostname.includes("x.com") && pathname.includes("/grok"))
   ) return "grok";
+  if (hostname.includes("perplexity.ai")) return "perplexity";
   return "unknown";
 }
 
@@ -50,6 +51,12 @@ function collectText() {
     return;
   }
 
+  // Skip Perplexity non-conversation pages (home, collections, discover, settings, library, profile, pro)
+  if (provider === 'perplexity' && (pathname === '/' || pathname === '' || pathname.startsWith('/collections') || pathname.startsWith('/discover') || pathname.startsWith('/settings') || pathname.startsWith('/library') || pathname.startsWith('/profile') || pathname.startsWith('/pro'))) {
+    console.log('[llm-history-search extension] Skipping Perplexity non-conversation page');
+    return;
+  }
+
   let text = '';
 
   // Provider-specific selectors to get only conversation content
@@ -67,6 +74,10 @@ function collectText() {
     text = chat ? chat.innerText : document.body.innerText;
   } else if (provider === 'grok') {
     // Grok: get main conversation area
+    const main = document.querySelector('main') || document.querySelector('[role="main"]');
+    text = main ? main.innerText : document.body.innerText;
+  } else if (provider === 'perplexity') {
+    // Perplexity: get main conversation area
     const main = document.querySelector('main') || document.querySelector('[role="main"]');
     text = main ? main.innerText : document.body.innerText;
   } else {
