@@ -89,7 +89,7 @@ function collectText() {
   // Generate unique ID: use URL only for stable identification
   // This allows updates to same conversation without creating duplicates
   // (title can change as conversation evolves, but URL stays the same)
-  const id = location.href;
+  const id = location.origin + location.pathname;
 
   const thread = {
     id: id,
