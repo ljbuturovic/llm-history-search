@@ -66,8 +66,12 @@ function collectText() {
     text = main ? main.innerText : document.body.innerText;
   } else if (provider === 'claude') {
     // Claude: get conversation container (excluding sidebar)
-    const conv = document.querySelector('.flex.min-h-full.w-full.overflow-x-clip > .w-full.relative.min-w-0');
-    text = conv ? conv.innerText : document.body.innerText;
+    // Avoid falling back to body.innerText as the sidebar contains all conversation titles,
+    // which would contaminate search results.
+    const conv = document.querySelector('.flex.min-h-full.w-full.overflow-x-clip > .w-full.relative.min-w-0')
+      || document.querySelector('[role="main"]')
+      || document.querySelector('main');
+    text = conv ? conv.innerText : '';
   } else if (provider === 'gemini') {
     // Gemini: get chat container
     const chat = document.querySelector('.conversation-container') || document.querySelector('main');
