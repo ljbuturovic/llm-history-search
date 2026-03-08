@@ -68,7 +68,8 @@ function collectText() {
     // Claude: get conversation container (excluding sidebar)
     // Avoid falling back to body.innerText as the sidebar contains all conversation titles,
     // which would contaminate search results.
-    const conv = document.querySelector('.flex.min-h-full.w-full.overflow-x-clip > .w-full.relative.min-w-0')
+    const conv = document.querySelector('[data-autoscroll-container]')
+      || document.querySelector('.flex.min-h-full.w-full.overflow-x-clip > .w-full.relative.min-w-0')
       || document.querySelector('[role="main"]')
       || document.querySelector('main');
     text = conv ? conv.innerText : '';
